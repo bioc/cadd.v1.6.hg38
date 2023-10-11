@@ -1,0 +1,10 @@
+bibentry(bibtype="Article",
+         author=c(person("Martin Kircher"), person("Daniela M. Witten"),
+                  person("Preti Jain"), person("Brian J. O'Roak"),
+                  person("Gregory M. Cooper"), person("Jay Shendure")),
+         title="A general framework for estimating the relative pathogenicity of human genetic variants",
+         journal="Nature Genetics",
+         volume="46",
+         pages="310-315",
+         year="2014",
+         doi="10.1038/ng.2892")
