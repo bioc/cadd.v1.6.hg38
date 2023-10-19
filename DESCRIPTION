@@ -1,7 +1,7 @@
 Package: cadd.v1.6.hg38
 Type: Package
 Title: CADD v1.6 Pathogenicity Scores AnnotationHub Resource Metadata for hg38
-Version: 3.18.0
+Version: 3.18.1
 Encoding: UTF-8
 Authors@R: c(person("Robert", "Castelo", role=c("aut", "cre"),
         email="robert.castelo@upf.edu"))

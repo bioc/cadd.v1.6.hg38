@@ -26,7 +26,7 @@ options(width=80)
 # Retrieval of cadd.v1.6.hg38 pathogenicity scores through AnnotationHub resources
 
 The `cadd.v1.6.hg38` package provides metadata for the
-`r Biocpkg("AnnotationHub")` resources associated with human AlphaMissense
+`r Biocpkg("AnnotationHub")` resources associated with human CADD
 pathogenicity scores [@kircher2014general]. The original data can be found at
 the University of Washington download
 [site](https://cadd.gs.washington.edu/download).
@@ -57,7 +57,10 @@ avgs <- readRDS(system.file("extdata", "avgs.rds", package="GenomicScores"))
 ```{r retrieve2, message=FALSE, cache=FALSE, eval=FALSE}
 availableGScores()
 ```
-```{r, echo=FALSE}
+```{r, message=FALSE, cache=FALSE, echo=FALSE}
+library(AnnotationHub)
+library(GenomicScores)
+setAnnotationHubOption("MAX_DOWNLOADS", 30)
 avgs
 ```
 
@@ -65,21 +68,23 @@ The selected resource can be downloaded with the function getGScores().
 After the resource is downloaded the first time, the cached copy will
 enable a quicker retrieval later.
 
-```{r retrieve3, message=FALSE, cache=FALSE, eval=FALSE}
+```{r retrieve3, message=FALSE, cache=FALSE}
 cadd <- getGScores("cadd.v1.6.hg38")
+cadd
+citation(cadd)
 ```
 
-Finally, the AlphaMissense pathogenicity score of a particular genomic position
+Finally, the CADD pathogenicity score of a particular genomic position
 is retrieved using the function 'gscores()'. Please consult the documentation
 of the `r Biocpkg("GenomicScores")` package for details on how to use it. For
-instance, @cheng2023accurate report likely pathogenic scores for variants in
+instance, @kircher2014general report likely pathogenic scores for variants in
 the human glucose sensor GCK. If we would like to retrieve the CADD
 score of the variant
 [NM_000162.5(GCK):c.1174C>T (p.Arg392Cys)](https://www.ncbi.nlm.nih.gov/clinvar/variation/585909),
 classified as pathogenic in the ClinVar database, we should call `gscores()`
 as follows.
 
-```{r retrieve4, message=FALSE, eval=FALSE}
+```{r retrieve4, message=FALSE}
 gscores(cadd, GRanges("chr7:44145576"), ref="C", alt="T")
 ```
 
