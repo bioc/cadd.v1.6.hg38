@@ -77,7 +77,7 @@ citation(cadd)
 Finally, the CADD pathogenicity score of a particular genomic position
 is retrieved using the function 'gscores()'. Please consult the documentation
 of the `r Biocpkg("GenomicScores")` package for details on how to use it. For
-instance, @kircher2014general report likely pathogenic scores for variants in
+instance, @cheng2023accurate report likely pathogenic scores for variants in
 the human glucose sensor GCK. If we would like to retrieve the CADD
 score of the variant
 [NM_000162.5(GCK):c.1174C>T (p.Arg392Cys)](https://www.ncbi.nlm.nih.gov/clinvar/variation/585909),
